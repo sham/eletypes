@@ -1,0 +1,65 @@
+{
+  "name": "eletypes",
+  "version": "0.0.0",
+  "main": "app/main/index.js",
+  "description": "Eletypes make you skilled in typing.",
+  "scripts": {
+    "start": "electron .",
+    "build": "next build app/renderer && next export app/renderer",
+    "dist": "yarn run build && build --x64 --publish=never",
+    "lint": "eslint app/**",
+    "lint:fix": "yarn run lint --fix",
+    "test": "echo \"Error: no test specified\""
+  },
+  "author": "shamofu",
+  "license": "MIT",
+  "build": {
+    "files": [
+      "app/**/*",
+      "!app/renderer",
+      "app/renderer/out"
+    ],
+    "win": {
+      "target": "dir"
+    },
+    "mac": {
+      "target": "dir"
+    },
+    "linux": {
+      "target": "dir"
+    }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/shamofu/eletypes.git"
+  },
+  "devDependencies": {
+    "autoprefixer": "^7.2.3",
+    "babel-plugin-module-resolver": "^3.0.0",
+    "babel-plugin-wrap-in-js": "^1.1.1",
+    "electron": "^1.7.10",
+    "electron-builder": "^19.49.2",
+    "eslint": "^4.14.0",
+    "eslint-plugin-react": "^7.5.1",
+    "glob": "^7.1.2",
+    "material-ui": "^0.20.0",
+    "next": "^4.2.1",
+    "node-sass": "^4.7.2",
+    "normalize.css": "^7.0.0",
+    "postcss-easy-import": "^3.0.0",
+    "postcss-loader": "^2.0.9",
+    "prop-types": "^15.6.0",
+    "raw-loader": "^0.5.1",
+    "react": "^16.2.0",
+    "react-dom": "^16.2.0",
+    "react-redux": "^5.0.6",
+    "redux": "^3.7.2",
+    "sass-loader": "^6.0.6",
+    "webpack": "^3.10.0"
+  },
+  "dependencies": {
+    "app-root-path": "^2.0.1",
+    "electron-is-dev": "^0.3.0",
+    "electron-next": "^3.1.3"
+  }
+}

@@ -1,0 +1,31 @@
+language: node_js
+node_js: lts/*
+os: osx
+osx_image: xcode9.1
+env:
+  global:
+  - APP_NAME=eletypes
+  - CSC_IDENTITY_AUTO_DISCOVERY=false
+before_install:
+  - brew update
+install:
+  - yarn install
+script:
+  - yarn test
+before_deploy:
+  - yarn run dist -mwl
+  - cd dist/win-unpacked && zip -9 -ry ${APP_NAME}-win-x64.zip . && cd ../..
+  - cd dist/mac && zip -9 -ry ${APP_NAME}-mac-x64.zip . && cd ../..
+  - cd dist/linux-unpacked && zip -9 -ry ${APP_NAME}-linux-x64.zip . && cd ../..
+deploy:
+  provider: releases
+  api_key:
+    secure: XgDPQbXmMkpygYrfkB9sASSrkLgRFJE6FKEu4DNzoqIi6sTiqo7xJU8/QyrXpxHFa439WgHYQ9l+I9ig90Sr5ox4+952nwGb+32HaydYLB6y8YCMlMNr8j9EH0xGqWebfPvDON+BquuyPRT1UIKy6osKllg0HtnrCTsFhDG5U/iq42WCiUumw9l2lif1uXRu6iS0EW7VwVMG/V4/flS34hH/LstAdxNBTZsjOaUsHl6h+9bzz9vxhFUsX0l4Og1BumeRLlfVLA/Teulzh+ZnkWngBmLuCIYv8VLFS5CfTthXyy40PG3TIlc5vkMJoAz7s5Vrjf1KOW15GYc34d8CreRj4D2tx3aYBFAqbUuwMF6lKFQSzb+JRrlp6OH80umCE8AuBSckXVNutlC9e70jTWYQBMcD9ZugAGNKJlUpGBV5McxHWavKzWE5dPAzE0lZb/bQOPsgiCAnsXyv6JFDop28FaGvaeH3mNFQKKYtl0XnEbTu8GGKYwdzueOr5k94dytaJwqFx25sIKV3suJODN8fGK09oXwciTd8D0q9ZxiIZ/+25A/NOQoYGxfH15MvIbPNlanlCyj/f0qBSlQFBT9P/6bv5O1I6nLMHRWPSHjJ8mdPHG6yg+pMWjIcCIqAbAJdaXcuz4CoQppvMIGyU2JwjMxhXNJlr9aFmPoQN7g=
+  file:
+    - dist/win-unpacked/${APP_NAME}-win-x64.zip
+    - dist/mac/${APP_NAME}-mac-x64.zip
+    - dist/linux-unpacked/${APP_NAME}-linux-x64.zip
+  skip_cleanup: true
+  on:
+    tags: true
+    branch: master
