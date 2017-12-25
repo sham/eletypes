@@ -7,12 +7,12 @@ import { keyToggle } from '../actions/keyToggle';
 class KeyDetector extends React.Component {
   constructor(props) {
     super(props);
-    this.onKeyUpCapture = (event) => {
+    this.onKeyUp = (event) => {
       const { keyState, keyToggle } = this.props;
       if (keyState[event.keyCode]) keyToggle(event.keyCode);
       // console.log('  Up: ' + event.keyCode);
     };
-    this.onKeyDownCapture = (event) => {
+    this.onKeyDown = (event) => {
       const { keyState, keyToggle } = this.props;
       if (!keyState[event.keyCode]) keyToggle(event.keyCode);
       // console.log('Down: ' + event.keyCode);
@@ -20,7 +20,7 @@ class KeyDetector extends React.Component {
   }
   render() {
     const { children } = this.props;
-    return <div style={{ outline: 'none' }} tabIndex='0' onKeyDownCapture={ this.onKeyDownCapture } onKeyUpCapture={ this.onKeyUpCapture }>
+    return <div style={{ outline: 'none' }} tabIndex='0' onKeyDown={ this.onKeyDown } onKeyUp={ this.onKeyUp }>
       { children }
     </div>;
   }
