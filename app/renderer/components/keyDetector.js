@@ -18,9 +18,16 @@ class KeyDetector extends React.Component {
       // console.log('Down: ' + event.keyCode);
     };
   }
+  componentDidMount() {
+    this.keyDetector.focus();
+  }
   render() {
     const { children } = this.props;
-    return <div style={{ outline: 'none' }} tabIndex='0' onKeyDown={ this.onKeyDown } onKeyUp={ this.onKeyUp }>
+    return <div ref={ (ref) => this.keyDetector = ref } 
+      style={{ outline: 'none' }} 
+      tabIndex='0' 
+      onKeyDown={ this.onKeyDown } 
+      onKeyUp={ this.onKeyUp }>
       { children }
     </div>;
   }
