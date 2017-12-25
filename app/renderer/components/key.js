@@ -3,6 +3,9 @@ import PropTypes from 'prop-types';
 import { RaisedButton } from 'material-ui';
 
 export default class Key extends React.Component {
+  shouldComponentUpdate(nextProps) {
+    return this.props.pressed != nextProps.pressed;
+  }
   render() {
     const { label, pressed = false, style = {} } = this.props;
     const styles = {
