@@ -12,7 +12,7 @@ export default class Key extends React.Component {
       pointerEvents: 'none',
       ...style
     };
-    return <RaisedButton backgroundColor='#E6E6E6' label={label} primary={pressed} style={styles} />;
+    return <RaisedButton backgroundColor='#E6E6E6' label={ label } primary={ pressed } style={ styles } />;
   }
 }
 Key.propTypes = {

@@ -14,7 +14,7 @@ class Keyboard extends React.Component {
         <MuiThemeProvider>
           <React.Fragment>
             <React.Fragment>
-              <Key label='Q' pressed={ keyState[81] } style={{marginLeft: 'calc((1100px - (88px + 8px) * 10) / 2)'}} />
+              <Key label='Q' pressed={ keyState[81] } style={{ marginLeft: 'calc((1100px - (88px + 8px) * 10) / 2)' }} />
               <Key label='W' pressed={ keyState[87] } />
               <Key label='E' pressed={ keyState[69] } />
               <Key label='R' pressed={ keyState[82] } />
@@ -26,7 +26,7 @@ class Keyboard extends React.Component {
               <Key label='P' pressed={ keyState[80] } />
             </React.Fragment>
             <React.Fragment>
-              <Key label='A' pressed={ keyState[65] } style={{marginLeft: 'calc((1100px - (88px + 8px) * 9) / 2)'}} />
+              <Key label='A' pressed={ keyState[65] } style={{ marginLeft: 'calc((1100px - (88px + 8px) * 9) / 2)' }} />
               <Key label='S' pressed={ keyState[83] } />
               <Key label='D' pressed={ keyState[68] } />
               <Key label='F' pressed={ keyState[70] } />
@@ -37,7 +37,7 @@ class Keyboard extends React.Component {
               <Key label='L' pressed={ keyState[76] } />
             </React.Fragment>
             <React.Fragment>
-              <Key label='Z' pressed={ keyState[90] } style={{marginLeft: 'calc((1100px - (88px + 8px) * 8) / 2)'}} />
+              <Key label='Z' pressed={ keyState[90] } style={{ marginLeft: 'calc((1100px - (88px + 8px) * 8) / 2)' }} />
               <Key label='X' pressed={ keyState[88] } />
               <Key label='C' pressed={ keyState[67] } />
               <Key label='V' pressed={ keyState[86] } />
