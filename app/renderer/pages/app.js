@@ -14,6 +14,7 @@ export default class extends React.Component {
   render() {
     return <React.Fragment>
       <Head>
+        <title>eletypes</title>
         <style dangerouslySetInnerHTML={{ __html: stylesheet }} />
       </Head>
       <Provider store={ store }>
