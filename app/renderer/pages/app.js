@@ -1,25 +1,27 @@
 import React from 'react';
+import { createStore } from 'redux';
+import { Provider } from 'react-redux';
 import Head from 'next/head';
 
+import reducer from '../reducers/reducer';
+import KeyDetector from '../components/keyDetector';
 import Keyboard from '../containers/keyboard';
 import stylesheet from '../styles/app.css';
 
+const store = createStore(reducer);
+
 export default class extends React.Component {
-  onKeyDownCapture(event) {
-    console.log('Down: ' + event.keyCode);
-  }
-  onKeyUpCapture(event) {
-    console.log('  Up: ' + event.keyCode);
-  }
   render() {
     return <React.Fragment>
       <Head>
         <style dangerouslySetInnerHTML={{ __html: stylesheet }} />
       </Head>
-      <div style={{ outline: 'none' }} tabIndex='0' onKeyDownCapture={ this.onKeyDownCapture.bind(this) } onKeyUpCapture={ this.onKeyUpCapture.bind(this) }>
-        <div style={{ height: '350px' }} />
-        <Keyboard />
-      </div>
+      <Provider store={ store }>
+        <KeyDetector>
+          <div style={{ height: '350px' }} />
+          <Keyboard />
+        </KeyDetector>
+      </Provider>
     </React.Fragment>;
   }
 }

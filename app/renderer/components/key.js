@@ -4,7 +4,7 @@ import { RaisedButton } from 'material-ui';
 
 export default class Key extends React.Component {
   render() {
-    const { label, pressed, style } = this.props;
+    const { label, pressed = false, style = {} } = this.props;
     const styles = {
       margin: 4,
       width: 88,
@@ -17,6 +17,6 @@ export default class Key extends React.Component {
 }
 Key.propTypes = {
   label: PropTypes.string.isRequired,
-  pressed: PropTypes.bool.isRequired,
+  pressed: PropTypes.bool,
   style: PropTypes.object
 };
