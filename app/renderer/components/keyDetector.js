@@ -31,4 +31,4 @@ KeyDetector.propTypes = {
   children: PropTypes.any
 };
 
-export default connect((state) => ({ keyState: state.keyState }), { keyToggle } )(KeyDetector);
+export default connect((state) => ({ keyState: state.keyState }), { keyToggle })(KeyDetector);
