@@ -13,8 +13,14 @@ app.on('ready', async () => {
 
   const mainWindow = new BrowserWindow({
     width: 1100,
-    height: 600
+    height: 600,
+    show: false
   });
+
+  mainWindow.once('ready-to-show', () => {
+    mainWindow.show();
+  });
+  
   mainWindow.setResizable(false);
   mainWindow.setMaximizable(false);
   mainWindow.setMovable(false);
