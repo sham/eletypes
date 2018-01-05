@@ -1,17 +1,21 @@
 {
   "name": "eletypes",
   "version": "0.0.0",
-  "main": "app/main/index.js",
+  "main": "app/main/main.js",
   "description": "Eletypes make you skilled in typing.",
   "scripts": {
     "start": "electron .",
     "build": "next build app/renderer && next export app/renderer",
     "dist": "yarn run build && build --dir --x64 --publish=never",
     "lint": "eslint --ignore-path .gitignore app",
-    "test": "echo \"Error: no test specified\""
+    "test": "yarn build && jest"
   },
   "author": "shamofu",
   "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/shamofu/eletypes.git"
+  },
   "build": {
     "files": [
       "app/**",
@@ -19,22 +23,32 @@
       "app/renderer/out/**"
     ]
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/shamofu/eletypes.git"
+  "jest": {
+    "verbose": true,
+    "collectCoverageFrom": [
+      "app/renderer/**",
+      "!app/renderer/next.config.js",
+      "!app/renderer/out/**",
+      "!app/renderer/tests/**",
+      "!app/renderer/.next/**"
+    ],
+    "coverageDirectory": ".coverage"
   },
   "devDependencies": {
     "electron": "^1.7.10",
     "electron-builder": "^19.49.2",
     "eslint": "^4.14.0",
     "eslint-plugin-react": "^7.5.1",
+    "jest": "^22.0.4",
     "material-ui": "^0.20.0",
     "next": "^4.2.1",
     "prop-types": "^15.6.0",
     "react": "^16.2.0",
     "react-dom": "^16.2.0",
     "react-redux": "^5.0.6",
+    "react-test-renderer": "^16.2.0",
     "redux": "^3.7.2",
+    "spectron": "^3.7.2",
     "webpack": "^3.10.0"
   },
   "dependencies": {
