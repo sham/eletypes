@@ -5,6 +5,7 @@ import Head from 'next/head';
 
 import reducer from '../reducers/reducer';
 import KeyDetector from '../components/keyDetector';
+import Display from '../components/display';
 import Keyboard from '../containers/keyboard';
 
 const store = createStore(reducer);
@@ -17,7 +18,7 @@ export default class extends React.Component {
       </Head>
       <Provider store={ store }>
         <KeyDetector>
-          <div style={{ height: '350px' }} />
+          <Display />
           <Keyboard />
         </KeyDetector>
       </Provider>
