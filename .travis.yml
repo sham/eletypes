@@ -6,8 +6,6 @@ env:
   global:
   - APP_NAME=eletypes
   - CSC_IDENTITY_AUTO_DISCOVERY=false
-before_install:
-  - brew update
 install:
   - yarn install
 before_script:

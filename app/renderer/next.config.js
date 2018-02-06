@@ -1,14 +1,10 @@
-module.exports = {
-  webpack(config) {
-    config.target = 'electron-renderer';
-    return config;
-  },
-  exportPathMap() {
-    // Let Next.js know where to find the entry page
-    // when it's exporting the static bundle for the use
-    // in the production version of your app
-    return {
-      '/app': { page: '/app' }
-    };
-  }
-};
+const withTypescript = require('@zeit/next-typescript');
+
+module.exports = withTypescript({
+  webpack: (config) => Object.assign(config, {
+    target: 'electron-renderer'
+  }),
+  exportPathMap: () => ({
+    '/app': { page: '/app' }
+  })
+});

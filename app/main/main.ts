@@ -1,13 +1,10 @@
-// Native
 const { format } = require('url');
 
-// Packages
 const { BrowserWindow, app } = require('electron');
 const isDev = require('electron-is-dev');
 const prepareNext = require('electron-next');
 const { resolve } = require('app-root-path');
 
-// Prepare the renderer once the app is ready
 app.on('ready', async () => {
   await prepareNext('./app/renderer');
 
@@ -19,8 +16,11 @@ app.on('ready', async () => {
 
   mainWindow.once('ready-to-show', () => {
     mainWindow.show();
+    if (isDev) {
+      mainWindow.webContents.openDevTools();
+    }
   });
-  
+
   mainWindow.setResizable(false);
   mainWindow.setMaximizable(false);
   mainWindow.setMovable(false);
@@ -37,9 +37,6 @@ app.on('ready', async () => {
   const url = isDev ? devPath : prodPath;
   mainWindow.loadURL(url);
   mainWindow.setMenu(null);
-
-  if (isDev) mainWindow.webContents.openDevTools();
 });
 
-// Quit the app once all windows are closed
 app.on('window-all-closed', app.quit);

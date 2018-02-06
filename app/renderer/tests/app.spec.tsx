@@ -1,12 +1,10 @@
-/* eslint-env jest */
-
 import React from 'react';
 import Renderer from 'react-test-renderer';
 
 import App from '../pages/app';
 
 function createNodeMock() {
-  return { focus: () => {} };
+  return { focus: () => true };
 }
 
 test('page App', () => {

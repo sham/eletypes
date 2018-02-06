@@ -1,5 +1,3 @@
-/* eslint-env jest */
-
 import getApp from './getapp';
 
 let app;
@@ -13,7 +11,7 @@ beforeEach(async () => {
   app = getApp();
   return await app.start();
 });
-  
+
 test('application title', async () => {
   expect(await app.client.getTitle()).toBe('eletypes');
 });

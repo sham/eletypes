@@ -1,13 +1,13 @@
 {
   "name": "eletypes",
   "version": "0.0.0",
-  "main": "app/main/main.js",
+  "main": "app/main/main.ts",
   "description": "Eletypes make you skilled in typing.",
   "scripts": {
     "start": "electron .",
     "build": "next build app/renderer && next export app/renderer",
-    "dist": "yarn run build && build --dir --x64 --publish=never",
-    "lint": "eslint --ignore-path .gitignore app",
+    "dist": "yarn build && build --dir --x64 --publish=never",
+    "lint": "tslint app/**/*.ts{,x}",
     "test": "yarn build && jest"
   },
   "author": "shamofu",
@@ -19,6 +19,7 @@
   "build": {
     "files": [
       "app/**",
+      "!app/main/tests/**",
       "!app/renderer/**",
       "app/renderer/out/**"
     ]
@@ -32,24 +33,40 @@
       "!app/renderer/tests/**",
       "!app/renderer/.next/**"
     ],
-    "coverageDirectory": ".coverage"
+    "coverageDirectory": ".coverage",
+    "testRegex": "(/__tests__/.*|(\\.|/)(test|spec))\\.tsx?$",
+    "transform": {
+      "^.+\\.tsx?$": "ts-jest"
+    },
+    "moduleFileExtensions": ["ts", "tsx", "js", "jsx", "json", "node"],
+    "globals": {
+      "ts-jest": {
+        "babelConfig": {
+          "presets": [["next/babel", { "preset-env": { "modules": "commonjs" } }]]
+        }
+      }
+    }
   },
   "devDependencies": {
-    "electron": "^1.7.11",
-    "electron-builder": "^19.55.2",
-    "eslint": "^4.16.0",
-    "eslint-plugin-react": "^7.5.1",
+    "@types/jest": "^22.1.1",
+    "@types/next": "^2.4.7",
+    "@types/react": "^16.0.36",
+    "@zeit/next-typescript": "^0.0.8",
+    "electron": "^1.7.12",
+    "electron-builder": "^19.56.0",
     "jest": "^22.1.4",
     "material-ui": "^0.20.0",
-    "next": "^4.2.3",
-    "prop-types": "^15.6.0",
+    "next": "^5.0.0",
     "react": "^16.2.0",
     "react-dom": "^16.2.0",
     "react-redux": "^5.0.6",
     "react-test-renderer": "^16.2.0",
     "redux": "^3.7.2",
-    "spectron": "^3.7.2",
-    "webpack": "^3.10.0"
+    "spectron": "^3.7.3",
+    "ts-jest": "^22.0.3",
+    "tslint": "^5.9.1",
+    "tslint-react": "^3.4.0",
+    "typescript": "^2.7.1"
   },
   "dependencies": {
     "app-root-path": "^2.0.1",

@@ -11,17 +11,19 @@ import Keyboard from '../containers/keyboard';
 const store = createStore(reducer);
 
 export default class extends React.Component {
-  render() {
-    return <React.Fragment>
-      <Head>
-        <title>eletypes</title>
-      </Head>
-      <Provider store={ store }>
-        <KeyDetector>
-          <Display />
-          <Keyboard />
-        </KeyDetector>
-      </Provider>
-    </React.Fragment>;
+  public render() {
+    return (
+      <React.Fragment>
+        <Head>
+          <title>eletypes</title>
+        </Head>
+        <Provider store={store}>
+          <KeyDetector>
+            <Display />
+            <Keyboard />
+          </KeyDetector>
+        </Provider>
+      </React.Fragment>
+    );
   }
 }
