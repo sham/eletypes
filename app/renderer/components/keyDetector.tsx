@@ -1,6 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 
+import { IStore } from '../reducers/reducer';
 import { keyToggle } from '../actions/keyToggle';
 
 interface IProps {
@@ -49,4 +50,7 @@ class KeyDetector extends React.Component<IProps> {
   }
 }
 
-export default connect((state) => ({ keyState: state.keyState }), { dispatchKeyToggle: keyToggle })(KeyDetector);
+export default connect(
+  (state: IStore) => ({ keyState: state.keyState }),
+  { dispatchKeyToggle: keyToggle }
+)(KeyDetector);

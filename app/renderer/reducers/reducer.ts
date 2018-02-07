@@ -1,12 +1,18 @@
+import { createStore } from 'redux';
+
 import { KEY_TOGGLE } from '../actions/keyToggle';
 import { SET_TARGET } from '../actions/setTarget';
 
-const initialState = {
+const initialState: IStore = {
   target: null,
   keyState: {}
 };
+export interface IStore {
+  target: any;
+  keyState: object;
+}
 
-export default function reducer(state = initialState, action) {
+function reducer(state: IStore, action): IStore {
   switch (action.type) {
     case KEY_TOGGLE: {
       return { ...state, keyState: { ...state.keyState, [action.payload]: !state.keyState[action.payload] } };
@@ -19,3 +25,7 @@ export default function reducer(state = initialState, action) {
     }
   }
 }
+
+export const makeStore = () => {
+  return createStore(reducer, initialState);
+};

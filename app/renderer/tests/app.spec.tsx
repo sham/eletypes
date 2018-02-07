@@ -4,7 +4,9 @@ import Renderer from 'react-test-renderer';
 import App from '../pages/app';
 
 function createNodeMock() {
-  return { focus: () => true };
+  return {
+    focus: () => true
+  };
 }
 
 test('page App', () => {
