@@ -6,7 +6,7 @@ import { setTarget } from '../actions/setTarget';
 
 interface IProps {
   keyState: object;
-  setTarget: () => void;
+  dispatchSetTarget: (keyCode: number) => void;
 }
 
 class Display extends React.Component<IProps> {
@@ -20,5 +20,5 @@ class Display extends React.Component<IProps> {
 
 export default connect(
   (state: IStore) => ({ keyState: state.keyState }),
-  { setTarget }
+  { dispatchSetTarget: setTarget }
 )(Display);
