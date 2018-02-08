@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 
-import { IStore } from '../reducers/reducer';
+import { IState } from '../store';
 import { setTarget } from '../actions/setTarget';
 
 interface IProps {
@@ -19,6 +19,6 @@ class Display extends React.Component<IProps> {
 }
 
 export default connect(
-  (state: IStore) => ({ keyState: state.keyState }),
+  (state: IState) => ({ keyState: state.reducer.keyState }),
   { dispatchSetTarget: setTarget }
 )(Display);

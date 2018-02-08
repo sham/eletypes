@@ -2,7 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { MuiThemeProvider } from 'material-ui';
 
-import { IStore } from '../reducers/reducer';
+import { IState } from '../store';
 import NoSSR from '../components/NoSSR';
 import Key from '../components/key';
 
@@ -70,4 +70,6 @@ class Keyboard extends React.Component<IProps> {
   }
 }
 
-export default connect((state: IStore) => ({ keyState: state.keyState }))(Keyboard);
+export default connect(
+  (state: IState) => ({ keyState: state.reducer.keyState })
+)(Keyboard);

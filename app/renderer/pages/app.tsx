@@ -2,7 +2,7 @@ import React from 'react';
 import withRedux from 'next-redux-wrapper';
 import Head from 'next/head';
 
-import { makeStore } from '../reducers/reducer';
+import { makeStore } from '../store';
 import KeyDetector from '../containers/keyDetector';
 import Display from '../containers/display';
 import Keyboard from '../containers/keyboard';
