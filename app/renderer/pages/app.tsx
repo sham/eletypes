@@ -3,8 +3,8 @@ import withRedux from 'next-redux-wrapper';
 import Head from 'next/head';
 
 import { makeStore } from '../reducers/reducer';
-import KeyDetector from '../components/keyDetector';
-import Display from '../components/display';
+import KeyDetector from '../containers/keyDetector';
+import Display from '../containers/display';
 import Keyboard from '../containers/keyboard';
 
 class App extends React.Component {
