@@ -19,6 +19,6 @@ class Display extends React.Component<IProps> {
 }
 
 export default connect(
-  (state: IState) => ({ keyState: state.reducer.keyState }),
+  (state: IState) => ({ keyState: state.main.keyState }),
   { dispatchSetTarget: setTarget }
 )(Display);
