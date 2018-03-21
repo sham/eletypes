@@ -10,11 +10,11 @@
     "lint": "tslint app/**/*.ts{,x}",
     "test": "yarn build && jest"
   },
-  "author": "shamofu",
+  "author": "sham",
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/shamofu/eletypes.git"
+    "url": "git+https://github.com/sham/eletypes.git"
   },
   "build": {
     "files": [
